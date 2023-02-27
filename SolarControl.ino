@@ -1,12 +1,22 @@
 // Include the libraries we need
+//#include <WiFiClientSecure.h>
+//#include <PubSubClient.h>
+//#include <ArduinoJson.h>
+//#include "WiFi.h"
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
 // Data wire is plugged into port 2 on the Arduino
 #define ONE_WIRE_BUS 4
 
+#define AWS_IOT_PUBLISH_TOPIC   "esp32/pub"
+#define AWS_IOT_SUBSCRIBE_TOPIC "esp32/sub"
+
 // Setup a oneWire instance to communicate with any OneWire devices (not just Maxim/Dallas temperature ICs)
 OneWire oneWire(ONE_WIRE_BUS); 
+
+//WiFiClientSecure net = WiFiClientSecure();
+//PubSubClient client(net);
 
 // Pass our oneWire reference to Dallas Temperature. 
 DallasTemperature sensors(&oneWire);
